@@ -101,14 +101,14 @@ def save_progress(part_num):
 
 def main():
     # CSV 파일 읽기 (경로 수정)
-    file_path = "C:/python_project/Predict_price/DATA/4_final_lease.csv"
+    file_path = "C:/Users/agy91/Downloads/random_30k_dist.csv"
     df = pd.read_csv(file_path)
 
     # 전체 데이터 크기
     total_rows = len(df)
     
     # 10만 개씩 나누기
-    chunk_size = 100_000
+    chunk_size = 50_000
     df_chunks = [df[i:i + chunk_size] for i in range(0, total_rows, chunk_size)]
 
     # 마지막으로 처리한 부분 불러오기
