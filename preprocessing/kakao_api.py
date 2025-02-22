@@ -84,7 +84,6 @@ def process_dataframe(df_part, part_num):
     df_part.to_csv(file_name, index=False, encoding="utf-8-sig")
     print(f"✅ {file_name} 처리 완료!")
 
-
 # 마지막으로 처리한 파트 번호 가져오기
 def get_last_processed_part():
     if os.path.exists(PROGRESS_FILE):
@@ -101,14 +100,15 @@ def save_progress(part_num):
 
 def main():
     # CSV 파일 읽기 (경로 수정)
-    file_path = "C:/Users/agy91/Downloads/random_30k_dist.csv"
-    df = pd.read_csv(file_path)
+    # file_path = "/Users/angwang-yun/Desktop/Project/coor/초등학교_도로명_전체주소.csv"
+    df = pd.read_csv("/Users/angwang-yun/Desktop/Project/coor/초등학교_도로명_전체주소.csv")
+    # df = pd.read_csv(file_path)
 
     # 전체 데이터 크기
     total_rows = len(df)
     
     # 10만 개씩 나누기
-    chunk_size = 50_000
+    chunk_size = 5000
     df_chunks = [df[i:i + chunk_size] for i in range(0, total_rows, chunk_size)]
 
     # 마지막으로 처리한 부분 불러오기
